@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "PhishGuard",
+  "version": "1.0",
+  "description": "AI Powered Phishing Detection",
+
+  "permissions": [
+    "tabs"
+  ],
+
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
