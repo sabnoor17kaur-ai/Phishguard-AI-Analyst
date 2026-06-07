@@ -5,16 +5,21 @@ const pageData = {
 };
 
 let risk = 0;
+let reasons = [];
 
-if(pageData.url.includes("login"))
+if(pageData.url.includes("login")){
     risk += 20;
-
-if(pageData.url.includes("verify"))
+ reasons.push("Contains login keyword");
+}
+if(pageData.url.includes("verify")){
     risk += 20;
+reasons.push("Contains verify keyword");
+}
 
-if(pageData.url.length > 60)
+if(pageData.url.length > 60){
     risk += 10;
-
+reasons.push("URL is unusually long");
+}
 let status = "Safe";
 
 if(risk >= 30)
@@ -23,8 +28,10 @@ if(risk >= 30)
 chrome.storage.local.set({
     pageData,
     risk,
-    status
+    status,
+    reasons
 });
 
 console.log("Risk Score:", risk);
 console.log(pageData);
+console.log(reasons);
