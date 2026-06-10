@@ -13,6 +13,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/scan", (req, res) => {
+    console.log("SCAN REQUEST RECEIVED");
+console.log(req.body);
 
     const { url, title } = req.body;
 
